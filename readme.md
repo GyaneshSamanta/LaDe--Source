@@ -1,3 +1,90 @@
+# LaDe — Source Mirror
+
+> **The first industry-scale last-mile delivery dataset, with reference code for route, ETA, and spatio-temporal forecasting.**
+
+![Dataset](https://img.shields.io/badge/dataset-LaDe-blue)
+![Paper](https://img.shields.io/badge/arXiv-2306.10675-red)
+![Source](https://img.shields.io/badge/upstream-Cainiao--AI-green)
+
+![LaDe logo](./img/logo.png)
+
+---
+
+## About
+
+This is a **source mirror** of the official LaDe codebase released alongside the paper *"LaDe: The First Comprehensive Last-mile Delivery Dataset from Industry."* All credit for the dataset, models, and experiments goes to the upstream authors at **Cainiao-AI / Alibaba**. This fork exists for personal study and reproducibility.
+
+- **Who?** Researchers and engineers working on logistics, ETA, routing, and spatio-temporal ML.
+- **What?** ~10.7M packages, 21k couriers, 6 months of real operations across 5 Chinese cities.
+- **Where?** Pickup and delivery operations across Shanghai, Hangzhou, Chongqing, Jilin, and Yantai.
+- **When?** Released 2023 (arXiv:2306.10675); this mirror was synced for review.
+- **Why?** Until LaDe, there was no large, publicly available, real-world last-mile dataset to benchmark logistics ML against.
+
+## The Story
+
+Last-mile delivery is the slice of supply chain where most of the cost — and most of the chaos — lives. Researchers have been writing routing and ETA papers for decades, but always against synthetic or proprietary data. **LaDe is the first time the industry handed over the keys.** It bundles three reference tasks, each with its own baselines: route prediction, ETA prediction, and spatio-temporal graph forecasting.
+
+## Gallery
+
+| Work overview | Tasks |
+|---|---|
+| ![overview](./img/work_overview_english.png) | ![tasks](./img/tasks.png) |
+
+| LaDe-P fields | LaDe-D fields |
+|---|---|
+| ![pickup](./img/datafeild_LaDe-P.png) | ![delivery](./img/datafeild_LaDe-D.png) |
+
+---
+
+## Tech Stack
+
+| Layer | Tools |
+|------|-------|
+| Language | Python 3 |
+| ML | PyTorch, scikit-learn (see per-task `requirements.txt`) |
+| Data | LaDe-P / LaDe-D on HuggingFace |
+| Tasks | Route prediction, ETA, spatio-temporal graph forecasting |
+
+## Repo Structure
+
+```
+LaDe--Source/
+├── img/                  # Figures from the paper
+├── route_prediction/     # Route prediction baselines
+├── stg_prediction/       # Spatio-temporal graph forecasting
+├── time_prediction/      # ETA prediction baselines
+└── readme.md
+```
+
+## Getting Started
+
+1. Get the data from HuggingFace ([LaDe-P](https://huggingface.co/datasets/Cainiao-AI/LaDe-P), [LaDe-D](https://huggingface.co/datasets/Cainiao-AI/LaDe-D)).
+2. Place CSVs under `data/raw/{delivery,pickup}/`.
+3. Pick a task and follow its readme:
+   ```bash
+   cd route_prediction && pip install -r requirements.txt && python run.py
+   ```
+
+## Contributing
+
+This is a personal mirror. Issues and PRs are best filed against the **upstream Cainiao-AI repository**.
+
+## License
+
+Inherits the upstream LaDe license terms — please review the original repository before redistribution or commercial use.
+
+## Credits
+
+All scientific and engineering credit belongs to the **LaDe authors**:
+
+> Lixia Wu, Haomin Wen, Haoyuan Hu, Xiaowei Mao, Yutong Xia, Ergang Shan, Jianbin Zhen, Junhong Lou, Yuxuan Liang, Liuqing Yang, Roger Zimmermann, Youfang Lin, Huaiyu Wan.
+
+Mirror maintained by **Gyanesh Samanta**.
+
+---
+
+## Original README (preserved below)
+
 # LaDe: The First Comprehensive Last-mile Delivery Dataset from Industry
 
 ![image](./img/logo.png)
